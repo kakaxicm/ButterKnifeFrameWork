@@ -164,9 +164,9 @@ public class BindClass {
                 int id = entry.getKey();
                 OnClickBind onClickBind = entry.getValue();
                 //先找到View
-                builder.addStatement("$T view = finder.findView(source, $L)", VIEW, id);
+                builder.addStatement("$T view_$L = finder.findView(source, $L)", VIEW, id, id);
                 //判空if else语句
-                builder.beginControlFlow("if (view != null)");
+                builder.beginControlFlow("if (view_$L != null)", id);
                 //OnClickListener匿名内部类
                 TypeSpec.Builder listener = TypeSpec.anonymousClassBuilder("")
                         .superclass(ON_CLICK_LISTENER);
@@ -187,7 +187,7 @@ public class BindClass {
                 }
                 listener.addMethod(methodBuilder.build());
                 //添加setOnClickListener方法
-                builder.addStatement("view.setOnClickListener($L)", listener.build());
+                builder.addStatement("view_$L.setOnClickListener($L)", id, listener.build());
                 builder.endControlFlow();
             }
         }

@@ -48,4 +48,9 @@ public class MainActivity extends AppCompatActivity {
     public void onTestClick(View v){
         Toast.makeText(this,R.string.app_name, Toast.LENGTH_SHORT).show();
     }
+
+    @OnClick(R.id.tv_test1)
+    public void onTestClick1(View v){
+        Toast.makeText(this,R.string.app_name, Toast.LENGTH_SHORT).show();
+    }
 }

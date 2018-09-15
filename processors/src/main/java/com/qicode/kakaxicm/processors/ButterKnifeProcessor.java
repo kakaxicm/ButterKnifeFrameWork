@@ -57,6 +57,7 @@ public class ButterKnifeProcessor extends AbstractProcessor {
     @Override
     public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
         //处理BindString注解元素
+        //Element 表示代码元素
         Set<? extends Element> elementsWithBindString = roundEnv.getElementsAnnotatedWith(BindString.class);
         for (Element element : elementsWithBindString) {
             //校验字串元素

@@ -161,7 +161,7 @@ public class VerifyUtils {
     private static boolean verifyElementType(Element element, Class<? extends Annotation> annotationClass, Messager messager) {
         // 获取最里层的外围元素
         TypeElement enclosingElement = (TypeElement) element.getEnclosingElement();
-        //校验String类型
+        //校验String类型 TypeMirror表示element的是哪个类如java.lang.String
         TypeMirror elementType = element.asType();
         if (annotationClass == BindString.class) {
             // 检测使用该注解的元素类型是否正确
